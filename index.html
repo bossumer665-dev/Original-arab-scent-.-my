@@ -479,6 +479,8 @@
 
         function renderProducts(items) {
             const container = document.getElementById('productGrid');
+            if (!container) return;
+
             if (items.length === 0) {
                 container.innerHTML = `
                     <div class="col-span-full py-16 text-center text-gray-400">
@@ -701,9 +703,13 @@
                             `*Items Ordered:*\n${itemsText}\n` +
                             `*Subtotal:* RM ${subtotal.toFixed(2)}\n` +
                             `*Shipping:* ${shipping === 0 ? "FREE" : "RM 10.00"}\n` +
-                            `*Grand Total:* RM ${grandTotal.`, '_blank'); // (trimmed for safe execution)
+                            `*Grand Total:* RM ${grandTotal.toFixed(2)}\n` +
+                            `------------------------------------\n` +
+                            `Please confirm availability and account payment details!`;
+
+            const encoded = encodeURIComponent(message);
+            window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encoded}`, '_blank');
         }
     </script>
 </body>
 </html>
-
