@@ -25,19 +25,20 @@
     header {
       display: flex; justify-content: space-between; align-items: center;
       padding: 18px 5%; background: var(--bg-dark); border-bottom: 1px solid #222;
+      position: sticky; top: 0; z-index: 100;
     }
 
-    .logo { font-size: 18px; font-weight: bold; color: var(--gold); }
+    .logo { font-size: 18px; font-weight: bold; color: var(--gold); letter-spacing: 1px; }
 
     .hero {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), 
-                  url('Screenshot_20261016_231656_TikTok.jpg') center/cover no-repeat;
-      min-height: 350px; display: flex; flex-direction: column;
+                  url('asad.jpg') center/cover no-repeat;
+      min-height: 380px; display: flex; flex-direction: column;
       justify-content: center; padding: 30px 8%;
     }
 
     .hero h1 { font-size: 32px; color: #fff; margin-bottom: 10px; }
-    .hero p { color: var(--text-muted); margin-bottom: 20px; font-size: 14px; }
+    .hero p { color: var(--text-muted); margin-bottom: 20px; font-size: 14px; max-width: 450px; }
 
     .btn-gold {
       background-color: var(--gold); color: #000; padding: 12px 24px;
@@ -45,37 +46,46 @@
       display: inline-block; width: fit-content;
     }
 
-    .section-title { text-align: center; margin: 30px 0 20px; }
+    .section-title { text-align: center; margin: 35px 0 20px; }
     .section-title h2 { font-size: 24px; color: var(--gold); }
+    .section-title p { color: var(--text-muted); font-size: 12px; letter-spacing: 1px; }
 
     .categories-grid { display: flex; justify-content: center; gap: 15px; padding: 0 5%; flex-wrap: wrap; }
     .category-card { text-align: center; width: 100px; }
     .category-circle {
       width: 90px; height: 90px; border-radius: 50%; border: 2px solid var(--gold);
-      overflow: hidden; margin: 0 auto 8px;
+      overflow: hidden; margin: 0 auto 8px; background: #fff;
     }
-    .category-circle img { width: 100%; height: 100%; object-fit: cover; }
+    .category-circle img { width: 100%; height: 100%; object-fit: contain; }
 
     .products-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px; padding: 0 5% 40px;
+      gap: 20px; padding: 0 6% 50px;
     }
 
     .product-card {
-      background-color: var(--card-bg); border-radius: 8px; padding: 15px;
-      border: 1px solid #252932; text-align: center;
+      background-color: var(--card-bg); border-radius: 10px; padding: 15px;
+      border: 1px solid #252932; text-align: center; display: flex;
+      flex-direction: column; justify-content: space-between;
+    }
+
+    .product-img-wrapper {
+      background: #ffffff; border-radius: 8px; padding: 10px;
+      height: 220px; display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
     }
 
     .product-card img {
-      width: 100%; height: 200px; object-fit: cover; border-radius: 5px; margin-bottom: 10px;
+      max-width: 100%; max-height: 200px; object-fit: contain;
     }
 
-    .product-title { font-size: 16px; font-weight: bold; color: #fff; }
-    .product-price { color: var(--gold); font-weight: bold; margin: 8px 0; }
+    .product-title { font-size: 16px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+    .product-price { color: var(--gold); font-weight: bold; font-size: 17px; margin: 8px 0; }
 
     .btn-buy {
       width: 100%; background-color: var(--gold); color: #000; border: none;
-      padding: 10px; border-radius: 5px; font-weight: bold; text-decoration: none; display: block;
+      padding: 10px; border-radius: 5px; font-weight: bold; text-decoration: none;
+      display: block; margin-top: 10px;
     }
 
     .whatsapp-btn {
@@ -83,13 +93,14 @@
       color: white; width: 55px; height: 55px; border-radius: 50%;
       display: flex; justify-content: center; align-items: center;
       font-size: 28px; text-decoration: none; z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
     }
   </style>
 </head>
 <body>
 
   <div class="announcement">
-    🚚 Free shipping on orders over RM150 | Authentic Arabian Scents
+    🚚 Free shipping on orders over RM150 | 100% Authentic Arabian Perfumes
   </div>
 
   <header>
@@ -97,48 +108,142 @@
   </header>
 
   <section class="hero">
-    <p style="color:var(--gold);">PREMIUM ARABIAN PERFUMES</p>
-    <h1>ORIGINAL ARAB<br>SCENT MY</h1>
-    <p>Discover authentic Arabian fragrances.</p>
-    <a href="#products" class="btn-gold">Shop Now &rarr;</a>
+    <p style="color:var(--gold);">PREMIUM COLLECTION</p>
+    <h1>LUXURY ARABIAN<br>FRAGRANCES</h1>
+    <p>Authentic, long-lasting oriental perfumes delivered across Malaysia.</p>
+    <a href="#products" class="btn-gold">Shop Collection &rarr;</a>
   </section>
 
+  <!-- Categories -->
   <div class="section-title">
-    <h2>Find Your Perfect Scent</h2>
+    <p>SHOP BY CATEGORY</p>
+    <h2>Featured Categories</h2>
   </div>
 
   <div class="categories-grid">
     <div class="category-card">
       <div class="category-circle">
-        <img src="Screenshot_20261016_231656_TikTok.jpg" alt="Oud">
+        <img src="asad.jpg" alt="Men">
       </div>
-      <h3>Oud</h3>
+      <h3 style="font-size:13px;">For Men</h3>
     </div>
     <div class="category-card">
       <div class="category-circle">
-        <img src="Screenshot_20261016_231656_TikTok.jpg" alt="Attar">
+        <img src="yara.jpg" alt="Women">
       </div>
-      <h3>Attar & Oil</h3>
+      <h3 style="font-size:13px;">For Women</h3>
+    </div>
+    <div class="category-card">
+      <div class="category-circle">
+        <img src="khamrah-dukhan.jpg" alt="Unisex">
+      </div>
+      <h3 style="font-size:13px;">Gourmand & Oud</h3>
     </div>
   </div>
 
+  <!-- All 8 Perfume Products -->
   <div class="section-title" id="products">
+    <p>BEST SELLERS</p>
     <h2>Our Popular Fragrances</h2>
   </div>
 
   <div class="products-grid">
+    
+    <!-- Product 1: Asad Elixir -->
     <div class="product-card">
-      <img src="Screenshot_20261016_231656_TikTok.jpg" alt="Perfume">
-      <div class="product-title">Original Yarra Perfumes</div>
-      <div class="product-price">RM 99.00</div>
-      <a href="https://wa.me/60123456789" class="btn-buy" target="_blank">Order via WhatsApp</a>
+      <div class="product-img-wrapper">
+        <img src="asad.jpg" alt="Lattafa Asad Elixir">
+      </div>
+      <div class="product-title">Lattafa Asad Elixir</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 129.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Asad%20Elixir" class="btn-buy" target="_blank">Order via WhatsApp</a>
     </div>
+
+    <!-- Product 2: Khamrah Dukhan -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="khamrah-dukhan.jpg" alt="Lattafa Khamrah Dukhan">
+      </div>
+      <div class="product-title">Lattafa Khamrah Dukhan</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 139.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Khamrah%20Dukhan" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 3: Eclaire -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="eclaire.jpg" alt="Lattafa Eclaire">
+      </div>
+      <div class="product-title">Lattafa Eclaire</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 119.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Eclaire" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 4: Bade'e Al Oud Sublime -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="sublime.jpg" alt="Bade'e Al Oud Sublime">
+      </div>
+      <div class="product-title">Bade'e Al Oud Sublime</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 129.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Badee%20Al%20Oud%20Sublime" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 5: Mayar -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="mayar.jpg" alt="Lattafa Mayar">
+      </div>
+      <div class="product-title">Lattafa Mayar</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 109.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Mayar" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 6: Teriaq -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="teriaq.jpg" alt="Lattafa Teriaq">
+      </div>
+      <div class="product-title">Lattafa Teriaq</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 149.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Teriaq" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 7: Yara -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="yara.jpg" alt="Lattafa Yara">
+      </div>
+      <div class="product-title">Lattafa Yara Pink</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 99.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Yara" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 8: Khamrah Waha -->
+    <div class="product-card">
+      <div class="product-img-wrapper">
+        <img src="khamrah-waha.jpg" alt="Lattafa Khamrah Waha">
+      </div>
+      <div class="product-title">Lattafa Khamrah Waha</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 139.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Khamrah%20Waha" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
   </div>
 
   <a href="https://wa.me/60123456789" class="whatsapp-btn" target="_blank">💬</a>
 
 </body>
 </html>
+
 
 
 
