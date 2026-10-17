@@ -3,33 +3,409 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Original Arab Scent</title>
+  <title>ORIGINAL ARAB SCENT MY | Luxury Arabian Perfumes</title>
   <style>
+    :root {
+      --gold: #d4af37;
+      --gold-hover: #b89628;
+      --bg-dark: #0f1115;
+      --card-bg: #181b20;
+      --text-light: #f5f5f5;
+      --text-muted: #aaa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    /* Announcement Bar */
+    .announcement {
+      background-color: #1a1e24;
+      color: #d4af37;
       text-align: center;
-      padding: 30px;
-      background-color: #f9f9f9;
+      padding: 8px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #2a2f38;
     }
-    h1 {
-      color: #333;
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: var(--bg-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #222;
     }
-    p {
-      color: #666;
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--gold);
+      letter-spacing: 1.5px;
     }
-    img {
-      max-width: 320px;
+
+    nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), 
+                  url('Screenshot_20261016_231500.jpg') center/cover no-repeat;
+      min-height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 8%;
+    }
+
+    .hero-subtitle {
+      color: var(--gold);
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      color: #fff;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 450px;
+      margin-bottom: 25px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .btn-gold {
+      background-color: var(--gold);
+      color: #000;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-hover);
+    }
+
+    /* Trust Badges */
+    .trust-badges {
+      display: flex;
+      justify-content: space-around;
+      background-color: #14171d;
+      padding: 25px 5%;
+      border-bottom: 1px solid #222;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .badge-item {
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .badge-item strong {
+      display: block;
+      color: var(--gold);
+      margin-top: 5px;
+    }
+
+    /* Section Styling */
+    .section-title {
+      text-align: center;
+      margin: 40px 0 25px 0;
+    }
+
+    .section-title h2 {
+      font-size: 26px;
+      color: var(--gold);
+      font-family: Georgia, serif;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    /* Categories */
+    .categories-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 0 5%;
+      flex-wrap: wrap;
+    }
+
+    .category-card {
+      text-align: center;
+      width: 120px;
+    }
+
+    .category-circle {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      margin: 0 auto 10px;
+    }
+
+    .category-circle img {
       width: 100%;
-      border-radius: 12px;
-      margin-top: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .category-card h3 {
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 0 8% 50px;
+    }
+
+    .product-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 15px;
+      border: 1px solid #252932;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      border-radius: 5px;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+
+    .product-price {
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .btn-buy {
+      width: 100%;
+      background-color: var(--gold);
+      color: #000;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      margin-top: 10px;
+    }
+
+    /* Promo Banner */
+    .banner {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('Screenshot_20261016_231500.jpg') center/cover;
+      margin: 20px 8% 50px;
+      padding: 40px;
+      border-radius: 10px;
+      border: 1px solid var(--gold);
+      text-align: left;
+    }
+
+    /* Reviews */
+    .reviews-container {
+      display: flex;
+      gap: 20px;
+      padding: 0 8% 50px;
+      overflow-x: auto;
+    }
+
+    .review-card {
+      background-color: #16191f;
+      padding: 20px;
+      border-radius: 8px;
+      flex: 1;
+      min-width: 250px;
+      border: 1px solid #222;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* WhatsApp Floating Button */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-decoration: none;
+      z-index: 1000;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #08090b;
+      padding: 40px 8% 20px;
+      border-top: 1px solid #1a1e24;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12px;
     }
   </style>
 </head>
 <body>
-  <h1>Original Yarra Perfumes</h1>
-  <p>Welcome to our official website!</p>
-  <img src="Screenshot_20261016_231500.jpg" alt="Perfume Image">
-</body>
-</html>
+
+  <!-- Announcement Bar -->
+  <div class="announcement">
+    🚚 Free shipping on orders over RM150 | Authentic Arabian Scents | Luxury in Every Drop
+  </div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="logo">ORIGINAL ARAB SCENT MY</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-subtitle">Premium Arabian Perfumes</div>
+    <h1>ORIGINAL ARAB<br>SCENT MY</h1>
+    <p>Discover the true essence of Arabia with our premium collection of authentic fragrances. Long-lasting. Bold. Unforgettable.</p>
+    <a href="#products" class="btn-gold">Shop Now &rarr;</a>
+  </section>
+
+  <!-- Trust Badges -->
+  <div class="trust-badges">
+    <div class="badge-item">
+      <strong>100% Authentic</strong>
+      <span style="color:#aaa;">Original Arabian Fragrances</span>
+    </div>
+    <div class="badge-item">
+      <strong>Fast Delivery</strong>
+      <span style="color:#aaa;">Across Malaysia</span>
+    </div>
+    <div class="badge-item">
+      <strong>Secure Order</strong>
+      <span style="color:#aaa;">WhatsApp & Online Options</span>
+    </div>
+  </div>
+
+  <!-- Shop by Category -->
+  <div class="section-title">
+    <p>Shop By Category</p>
+    <h2>Find Your Perfect Scent</h2>
+  </div>
+
+  <div class="categories-grid">
+    <div class="category-card">
+      <div class="category-circle">
+        <img src="Screenshot_20261016_231500.jpg" alt="Oud">
+      </div>
+      <h3>Oud</h3>
+    </div>
+    <div class="category-card">
+      <div class="category-circle">
+        <img src="Screenshot_20261016_231500.jpg" alt="Attar">
+      </div>
+      <h3>Attar & Oil</h3>
+    </div>
+    <div class="category-card">
+      <div class="category-circle">
+        <img src="Screenshot_20261016_231500.jpg" alt="Eau De Parfum">
+      </div>
+      <h3>Eau de Parfum</h3>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <div class="section-title" id="products">
+    <p>Best Sellers</p>
+    <h2>Our Popular Fragrances</h2>
+  </div>
+
+  <div class="products-grid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <img src="Screenshot_20261016_231500.jpg" alt="Lattafa Oud For Glory">
+      <div class="product-title">Lattafa Oud For Glory</div>
+      <div style="font-size:12px; color:#aaa;">Eau de Parfum 100ml</div>
+      <div class="product-price">RM 129.00</div>
+      <a href="https://wa.me/60123456789?text=Hi,%20I%20want%20to%20order%20Lattafa%20Oud%20For%20Glory" class="btn-buy" target="_blank">Order via WhatsApp</a>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <img src="Screenshot_20261016_231500.jpg" alt="Asad Perfume">
+      <div class="product-title">Lattafa Asad</div>
+
 
